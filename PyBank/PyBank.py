@@ -1,6 +1,7 @@
 # Import modules that we're going to need
 import os
 import pandas as pd
+import locale
 
 # Step One: Get all my data into a clean data frame that I can manipulate
 
@@ -43,8 +44,11 @@ greatest_decrease_amount = revenue_df['Revenue'].min()
 revenue_reindex_df = revenue_df.set_index(['Revenue'])
 greatest_decrease_date = revenue_reindex_df.loc[greatest_decrease_amount,'Date']
 
+# set currency 
+locale.setlocale( locale.LC_ALL, 'en_US' )
 
 # Step 3: Format and return results
+
 # print header
 print("Financial Analysis")
 print('-' * 60)
