@@ -32,17 +32,29 @@ average_revenue_change = round(revenue_df['Revenue'].sum() / revenue_df['Revenue
 
 
 # greatest increase in revenue over the entire period
-greatest_increase_amount = revenue_df['Revenue'].max()
+greatest_increase_amount = float(revenue_df['Revenue'].max())
 
 # find the date for that amount
 revenue_reindex_df = revenue_df.set_index(['Revenue'])
-greatest_increase_date = revenue_reindex_df.loc[greatest_increase_amount]
-print(type(greatest_increase_date))
+greatest_increase_date = revenue_reindex_df.loc[greatest_increase_amount,'Date']
 
 # greatest decrease in revenue over the entire period
 greatest_decrease_amount = revenue_df['Revenue'].min()
+revenue_reindex_df = revenue_df.set_index(['Revenue'])
+greatest_decrease_date = revenue_reindex_df.loc[greatest_decrease_amount,'Date']
 
 
+# Step 3: Format and return results
+# print header
+print("Financial Analysis")
+print('-' * 60)
+print("Time Period: {} months".format(count_months))
+print("Total Revenue: "+ str(locale.currency(total_revenue,grouping=True)))
+print("Average Revenue Change: " + str(locale.currency(average_revenue_change,grouping=True)))
+print("Greatest Increase in Revenue: "+ str(locale.currency(greatest_increase_amount,grouping=True)) + \
+      " (" + greatest_increase_date + ")")
+print("Greatest Decrease in Revenue: "+ str(locale.currency(greatest_decrease_amount,grouping=True)) + \
+      " (" + greatest_decrease_date + ")")
+print('-' * 60)
 
-# Step 3: Return results
-
+print("The results of this analysis can be found in the text file named analysis_{}.txt.".format(revenue_file))
