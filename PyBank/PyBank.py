@@ -6,14 +6,15 @@ import locale
 # ----------------------------------------------------------------------
 # Step 0: Give instructions to the user
 # ----------------------------------------------------------------------
-print()
+print("Make sure the file you want to analyze is nearby! \n")
 
 # ----------------------------------------------------------------------
 # Step 1: Get all my data into a clean data frame that I can manipulate
 # ----------------------------------------------------------------------
 
 # Get paths for the file that we're going to be using
-revenue_file = input("Input the path name of the file that you want to analyze! FYI, you're currently at Documents/Github/UCBerkeley_HomeworkAssignment3/ ")
+revenue_file = input("Input the path name of the file that you want to analyze! \n" + \
+                    "(FYI, you're currently at Documents/Github/UCBerkeley_HomeworkAssignment3/) ")
 
 # create a data frame
 revenue_df = pd.read_csv(revenue_file)
@@ -58,7 +59,7 @@ locale.setlocale( locale.LC_ALL, 'en_US' )
 # ----------------------------------------------------------------------
 # Step 3: Format and print results in terminal
 # ----------------------------------------------------------------------
-
+print()
 # print header
 print("Financial Analysis")
 print('-' * 60)
