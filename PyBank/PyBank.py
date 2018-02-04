@@ -34,7 +34,10 @@ average_revenue_change = round(revenue_df['Revenue'].sum() / revenue_df['Revenue
 # greatest increase in revenue over the entire period
 greatest_increase_amount = revenue_df['Revenue'].max()
 
-
+# find the date for that amount
+revenue_reindex_df = revenue_df.set_index(['Revenue'])
+greatest_increase_date = revenue_reindex_df.loc[greatest_increase_amount]
+print(type(greatest_increase_date))
 
 # greatest decrease in revenue over the entire period
 greatest_decrease_amount = revenue_df['Revenue'].min()
