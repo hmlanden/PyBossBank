@@ -13,12 +13,16 @@ with open(file_name) as original:
     
     # iterate over file and pull in data
     for row in employee_data_reader:
-        
+
         # split name, remove it, and add first and last name to the dictionary
         first_name,last_name = row['Name'].split()
         del row['Name']
         row['First Name'], row['Last Name'] = first_name, last_name
 
+        # reformat birthdate
+        # reformat birthdate
+        birth_year, birth_month, birth_day = row['DOB'].split('-')
+        row['DOB'] = "{}/{}/{}".format(birth_month, birth_day, birth_year)
 
 # clean data
 
