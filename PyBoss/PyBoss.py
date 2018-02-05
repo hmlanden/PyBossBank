@@ -13,7 +13,11 @@ with open(file_name) as original:
     
     # iterate over file and pull in data
     for row in employee_data_reader:
-        print(row)
+        
+        # split name, remove it, and add first and last name to the dictionary
+        first_name,last_name = row['Name'].split()
+        del row['Name']
+        row['First Name'], row['Last Name'] = first_name, last_name
 
 
 # clean data
