@@ -20,9 +20,12 @@ with open(file_name) as original:
         row['First Name'], row['Last Name'] = first_name, last_name
 
         # reformat birthdate
-        # reformat birthdate
         birth_year, birth_month, birth_day = row['DOB'].split('-')
         row['DOB'] = "{}/{}/{}".format(birth_month, birth_day, birth_year)
+
+        # remove all but last four of the SSN
+        split_SSN = row['SSN'].split('-')
+        row['SSN'] = "{}-{}-{}".format('***', '**', split_SSN[2])
 
 # clean data
 
