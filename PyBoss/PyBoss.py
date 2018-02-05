@@ -58,8 +58,8 @@ us_state_abbrev = {
 }
 
 # get filename
-file_name = 'raw_data/employee_data1.csv'
-file_output = 'cleaned_data.csv'
+file_name = input("Please insert the file name here: ")
+file_output = input("Please insert the name you want on the ouput file: ")
 
 # open file
 with open(file_name, 'r') as original, open(file_output, 'w') as new:
@@ -97,3 +97,5 @@ with open(file_name, 'r') as original, open(file_output, 'w') as new:
         
         # write row to the new file
         employee_data_writer.writerow(row)
+
+print("Check out the file! We're done reformatting the file.")
